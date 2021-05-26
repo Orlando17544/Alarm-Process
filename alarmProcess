@@ -1,0 +1,16 @@
+#!/bin/bash
+
+clear
+read -p "What process regex? " regex
+echo "Waiting..."
+
+process="$(ps aux | grep -P "$regex" | grep -Pv 'grep')"
+
+while [[ "$process" != "" ]]; do
+	sleep 1m
+	process="$(ps aux | grep -P "$regex" | grep -Pv 'grep')"
+done
+
+mpv ~/Música/bash/alarmProcess.mp3 &> /dev/null &
+read -p "Press enter to continue -> "
+kill $!

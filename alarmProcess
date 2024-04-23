@@ -12,7 +12,7 @@ playMusic () {
 	if [[ "$(cat ~/tmp/headphonesStatus | grep -P 'headphone' | tail -n 1 | grep -P 'unplug')" != "" ]]; then
 		mpv ~/Música/bash/alarmProcess.mp3 &> /dev/null &
 	else
-		mpv --volume 50 ~/Música/bash/alarmProcess.mp3 &> /dev/null &
+		mpv --volume=50 ~/Música/bash/alarmProcess.mp3 &> /dev/null &
 	fi
 }
 
